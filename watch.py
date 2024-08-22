@@ -7,15 +7,11 @@ def main():
 
 
 def parse(s):
-    matches = re.search(r"(?<=https://www.youtube.com/embed/).*", s)
-    print(matches)
+    matches = re.search(r'src="https?://youtube.com/embed/([a-zA-Z0-9]+)"', s)
     if matches:
-        result= matches.group
-        url= f"https://youtu.be/{result}"
+        result = matches.group(1)
+        url = f"https://youtu.be/{result}"
         return url
-
-
-...
 
 
 if __name__ == "__main__":
